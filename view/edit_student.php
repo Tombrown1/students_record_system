@@ -25,7 +25,7 @@
                 $duration_id = $_POST['duration_id'];
                 $payment_id  = $_POST['payment_id'];
                 $pay_type_id = $_POST['pay_type_id'];
-                $filename     = $_FILES['image'];
+                $fileNewname     = $_FILES['image'];
         // print_r($filename);
         // exit;
         if(isset($_FILES['image']))
@@ -55,7 +55,7 @@
             echo "You cannot upload this file type";
         }
 
-          update_student_by_id($mysqli, $std_id, $std_name, $std_email, $std_phone,$course_id,$gender_id,$sponsor_id, $duration_id, $payment_id, $pay_type_id, $filename);
+          update_student_by_id($mysqli, $std_id, $std_name, $std_email, $std_phone,$course_id,$gender_id,$sponsor_id, $duration_id, $payment_id, $pay_type_id, $fileNewname);
                    
             }
         

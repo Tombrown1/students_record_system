@@ -31,7 +31,7 @@
         $duration_id  = $_POST['duration_id'];
         $payment_id   = $_POST['payment_id'];
         $pay_type_id  = $_POST['pay_type_id'];
-        $filename     = $_FILES['image'];
+        $fileNewname     = $_FILES['image'];
         // print_r($filename);
         // exit;
         if(isset($_FILES['image']))
@@ -64,7 +64,7 @@
         // check if file has one of the following extensions
         //$allowedfileExtensions = array('jpg', 'gif', 'png', 'zip', 'txt', 'xls', 'doc');
 
-        insert_student($mysqli, $std_name, $std_email, $std_phone,$course_id,$gender_id,$sponsor_id, $duration_id, $payment_id, $pay_type_id, $filename);
+        insert_student($mysqli, $std_name, $std_email, $std_phone,$course_id,$gender_id,$sponsor_id, $duration_id, $payment_id, $pay_type_id, $fileNewname);
 
     }
 ?>
@@ -115,11 +115,8 @@
             </div>
             <div class="form-group">
                 <label for="course_id">Course</label>
-                <select class="form-control" name="course_id" value="<?php //echo $rows['course_id'];?>">
-                <option value=""><?php
-                    $result = get_course_by_id($mysqli, $course_id = $student_rows['course_id']);
-                        if($row = mysqli_fetch_assoc($result)){}
-                    ?> <?php echo $row['course_name']; ?> </option>
+                <select class="form-control" name="course_id" value="">
+                <option value="course_id"> <?php echo $student_rows['course_id'];?></option>
                     <?php
                            $result  = get_all_course($mysqli);
                             if(mysqli_num_rows($result)){

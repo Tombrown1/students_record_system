@@ -151,7 +151,7 @@
 
                                       $profile_image = $student_rows['image'];
                                       if($profile_image){
-                                          echo "<img src='images/profile".$profile_image."'/>";
+                                          echo "<img src='images/".$profile_image."'/>";
                                       }
                                     
                                     ?>

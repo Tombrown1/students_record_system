@@ -1,9 +1,9 @@
 <?php
 
-    function insert_student($mysqli, $std_name, $std_email, $std_phone,$course_id,$gender_id,$sponsor_id, $duration_id, $payment_id, $pay_type_id, $filename){
+    function insert_student($mysqli, $std_name, $std_email, $std_phone,$course_id,$gender_id,$sponsor_id, $duration_id, $payment_id, $pay_type_id, $fileNewname){
          //global $mysqli;
         $query = "INSERT INTO student(std_name, std_email, std_phone, course_id, gender_id, sponsor_id, duration_id, payment_id, pay_type_id, image)
-                        VALUES('$std_name', '$std_email', '$std_phone','$course_id', '$gender_id', '$sponsor_id', '$duration_id', '$payment_id', '$pay_type_id', '$filename')";
+                        VALUES('$std_name', '$std_email', '$std_phone','$course_id', '$gender_id', '$sponsor_id', '$duration_id', '$payment_id', '$pay_type_id', '$fileNewname')";
         $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
 
         header("Location: home.php");
@@ -23,9 +23,9 @@
         return $result;
     }
 
-    function update_student_by_id($mysqli, $std_id, $std_name, $std_email, $std_phone,$course_id, $gender_id, $sponsor_id, $duration_id, $payment_id, $pay_type_id, $filename){
+    function update_student_by_id($mysqli, $std_id, $std_name, $std_email, $std_phone,$course_id, $gender_id, $sponsor_id, $duration_id, $payment_id, $pay_type_id, $fileNewname){
        // global $mysqli;
-        $query = "UPDATE student SET std_name ='".$std_name."', std_email ='".$std_email."', std_phone ='". $std_phone."', course_id ='".$course_id."', gender_id ='".$gender_id."', sponsor_id ='". $sponsor_id."', duration_id ='".$duration_id."', payment_id ='".$payment_id."', pay_type_id ='".$pay_type_id."', image='".$filename."' WHERE std_id=".$std_id;
+        $query = "UPDATE student SET std_name ='".$std_name."', std_email ='".$std_email."', std_phone ='". $std_phone."', course_id ='".$course_id."', gender_id ='".$gender_id."', sponsor_id ='". $sponsor_id."', duration_id ='".$duration_id."', payment_id ='".$payment_id."', pay_type_id ='".$pay_type_id."', image='".$fileNewname."' WHERE std_id=".$std_id;
         $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
 
             header("Location: student_profile.php?view=1&std_id=".$std_id);
